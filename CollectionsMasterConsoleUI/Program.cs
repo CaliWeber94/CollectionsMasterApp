@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.Globalization;
 using System.Security.Cryptography;
 using System.Threading.Channels;
@@ -90,8 +91,17 @@ namespace CollectionsMasterConsoleUI
 
                 Console.WriteLine("What number will you search for in the number list?");
                 isNum = int.TryParse(Console.ReadLine(), out userNum);
-            } while (isNum);
-            NumberChecker(numberslist, userNum);
+                NumberChecker(numberslist, userNum);
+
+                if (isNum) break;
+                
+
+            } while (true);
+
+            
+
+            
+            
 
 
             Console.WriteLine("-------------------");
@@ -135,7 +145,7 @@ namespace CollectionsMasterConsoleUI
                     numbers[i] = 0;
                 }
             }
-            NumberPrinter(numbers);
+            ThreeKiller(numbers);
         }
 
         private static void OddKiller(List<int> numberList)
